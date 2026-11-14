@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section id="start-screen" class="screen card">
+      <h1>Minesweeper</h1>
+      <p id="start-message" class="message" hidden></p>
+      <form id="start-form" novalidate>
+        <label>
+          <span>Number of Mines</span>
+          <input id="mines-input" type="number" min="1" step="1" placeholder="Number of Mines" value="10" required>
+        </label>
+        <label>
+          <span>Number of Rows</span>
+          <input id="rows-input" type="number" min="1" step="1" placeholder="Number of Rows" value="9" required>
+        </label>
+        <label>
+          <span>Number of Columns</span>
+          <input id="cols-input" type="number" min="1" step="1" placeholder="Number of Columns" value="9" required>
+        </label>
+        <p id="form-error" class="error" hidden></p>
+        <button type="submit" class="primary">Click To Start</button>
+      </form>
+    </section>
+
+    <section id="game-screen" class="screen" hidden>
+      <header class="game-header">
+        <div class="flag-label"><span class="icon-flag" aria-hidden="true"></span><span id="flag-label">Flags: 0</span></div>
+        <button id="quit-button" type="button" class="secondary">New Game</button>
+      </header>
+      <p class="hint">Left-click to reveal, right-click to flag. Start on the <span class="hint-swatch"></span> green square.</p>
+      <div class="board-wrapper">
+        <div id="board" class="board" role="grid" aria-label="Minesweeper board"></div>
+      </div>
+    </section>
+
+    <section id="win-screen" class="screen card" hidden>
+      <h1>You Win!</h1>
+      <button id="play-again-button" type="button" class="primary">Play Again</button>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
