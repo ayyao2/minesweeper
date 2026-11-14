@@ -27,12 +27,19 @@ class Square {
     this.el.type = "button";
     this.el.className = "cell";
     this.el.setAttribute("role", "gridcell");
-    this.el.setAttribute("aria-label", `Row ${row + 1}, column ${col + 1}`);
+    this.updateLabel();
   }
 
   changeFlag() {
     this.flag = !this.flag;
     this.el.classList.toggle("flagged", this.flag);
+    this.updateLabel();
+  }
+
+  updateLabel(revealedText) {
+    let state = this.flag ? "flagged" : "covered";
+    if (this.click) state = revealedText ? `${revealedText} adjacent mines` : "empty";
+    this.el.setAttribute("aria-label", `Row ${this.row + 1}, column ${this.col + 1}, ${state}`);
   }
 }
 
@@ -125,6 +132,7 @@ class Board {
         square.el.textContent = mines;
         square.el.dataset.n = mines;
       }
+      square.updateLabel(mines);
       this.safeRemaining--;
     }
     this.updateFlagLabel();
