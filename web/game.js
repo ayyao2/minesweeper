@@ -73,6 +73,7 @@ class Board {
     if (zeros.length > 0) {
       zeros[Math.floor(Math.random() * zeros.length)].el.classList.add("hint");
     }
+    document.getElementById("hint-start").hidden = zeros.length === 0;
 
     this.updateFlagLabel();
   }
