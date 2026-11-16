@@ -20,3 +20,15 @@ python3 -m http.server 8000 --directory web
 ```
 
 Then open http://localhost:8000.
+
+## React + TypeScript version
+
+The `web-react/` directory is a port of the `web/` version to TypeScript + React, built with Vite. The game logic lives in plain TypeScript (`web-react/src/game/Board.ts`, `Square.ts`) with no DOM or React code, and the React components in `web-react/src/components/` render the start, game, and win screens. It is still a fully client-side static app. To run it:
+
+```
+cd web-react
+npm install
+npm run dev
+```
+
+`npm run build` writes a static site to `web-react/dist/` that can be served from any static host (e.g. `python3 -m http.server 8000 --directory web-react/dist`).
