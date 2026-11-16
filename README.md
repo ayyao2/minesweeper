@@ -31,4 +31,6 @@ npm install
 npm run dev
 ```
 
+`npm test` runs the Vitest unit tests for the game logic, and `npm run test:e2e` runs the Playwright browser tests (run `npx playwright install chromium` once first). Both run in CI on changes to `web-react/`.
+
 `npm run build` writes a static site to `web-react/dist/` that can be served from any static host (e.g. `python3 -m http.server 8000 --directory web-react/dist`).
